@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"noEmit": true,
+		"strict": true,
+		"module": "es2015",
+		"moduleResolution": "Node",
+		"target": "es2015"
+	},
+	"files": [
+		"prsh.js"
+	]
+}

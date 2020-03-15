@@ -1,0 +1,7 @@
+{
+	"extends": "plugin:@wordpress/eslint-plugin/es5",
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 2015
+	}
+}
