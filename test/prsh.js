@@ -4,6 +4,7 @@
 import 'mocha';
 import { JSDOM } from 'jsdom';
 import { h, Fragment, render as preactRender, options } from 'preact';
+import { useMemo } from 'preact/hooks';
 import { act } from 'preact/test-utils';
 import { createStore } from 'redux';
 import { strictEqual } from 'assert';
@@ -205,5 +206,40 @@ describe( 'useSelector', () => {
 
 		strictEqual( 1, subscriptions.length );
 		strictEqual( document.body.innerHTML, 'Count: -1' );
+	} );
+
+	it( 'updates in response to dependency changes', () => {
+		function MyComponent( { multiplier = 1 } ) {
+			// This "works" because the hook receives a new function reference
+			// each render. Since the underlying `useLayoutEffect` is provided
+			// the function as a dependency, the selector will run each render.
+			const countViaChangingSelector = useSelector(
+				( state ) => state * multiplier
+			);
+
+			// Considering a selector memoized using `useMemo`, while it would
+			// be a consistent reference, the workaround would be to provide
+			// the prop dependency as a `deps` array member of `useMemo`, to
+			// create a new function reference when the dependency changes.
+			const memoizedSelector = useMemo(
+				() => ( state ) => state * multiplier,
+				[ multiplier ]
+			);
+			const countViaMemoizedSelector = useSelector( memoizedSelector );
+
+			strictEqual( countViaChangingSelector, countViaMemoizedSelector );
+
+			return h( Fragment, null, 'Count: ' + countViaChangingSelector );
+		}
+
+		store.dispatch( { type: 'INCREMENT' } );
+
+		render( h( MyComponent, null ) );
+		strictEqual( document.body.innerHTML, 'Count: 1' );
+
+		act( () => {
+			render( h( MyComponent, { multiplier: 2 } ) );
+		} );
+		strictEqual( document.body.innerHTML, 'Count: 2' );
 	} );
 } );
