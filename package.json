@@ -1,69 +1,69 @@
 {
-  "name": "prsh",
-  "version": "1.0.1",
-  "description": "Preact Redux Simple Hooks",
-  "main": "dist/prsh.cjs.js",
-  "module": "prsh.js",
-  "sideEffects": false,
-  "types": "prsh.d.ts",
-  "scripts": {
-    "build": "npm run build:bundle && npm run build:types",
-    "postbuild": "terser -m -o dist/prsh.min.js dist/prsh.js",
-    "build:bundle": "rollup -c",
-    "build:types": "tsc -p tsconfig.decl.json",
-    "prepublishOnly": "npm run build",
-    "test": "npm run test:lint && npm run test:types && npm run test:unit",
-    "test:lint": "eslint *.js test/*.js",
-    "test:types": "tsc",
-    "test:unit": "mocha -r esm",
-    "size": "cat prsh.js | terser -m | gzip-size"
-  },
-  "keywords": [
-    "preact",
-    "redux",
-    "hooks"
-  ],
-  "author": {
-    "name": "Andrew Duthie",
-    "email": "andrew@andrewduthie.com",
-    "url": "https://andrewduthie.com"
-  },
-  "homepage": "https://github.com/aduth/prsh",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aduth/prsh.git"
-  },
-  "bugs": {
-    "url": "https://github.com/aduth/prsh/issues"
-  },
-  "license": "MIT",
-  "files": [
-    "dist",
-    "prsh.d.ts",
-    "prsh.js"
-  ],
-  "peerDependencies": {
-    "preact": ">=10",
-    "redux": ">=4"
-  },
-  "devDependencies": {
-    "@aduth/eslint-config": "^4.1.0",
-    "@types/jsdom": "^16.1.0",
-    "@types/mocha": "^7.0.2",
-    "@types/sinon": "^7.5.2",
-    "eslint": "^7.28.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "esm": "^3.2.25",
-    "gzip-size-cli": "^3.0.0",
-    "jsdom": "^16.2.1",
-    "mocha": "^7.1.0",
-    "preact": "^10.3.4",
-    "prettier": "^2.3.1",
-    "redux": "^4.0.5",
-    "rollup": "^2.0.6",
-    "sinon": "^9.0.1",
-    "terser": "^4.6.6",
-    "typescript": "^4.3.2"
-  }
+	"name": "prsh",
+	"version": "1.0.1",
+	"description": "Preact Redux Simple Hooks",
+	"main": "dist/prsh.cjs.js",
+	"module": "prsh.js",
+	"sideEffects": false,
+	"types": "prsh.d.ts",
+	"scripts": {
+		"build": "npm run build:bundle && npm run build:types",
+		"postbuild": "terser -m -o dist/prsh.min.js dist/prsh.js",
+		"build:bundle": "rollup -c",
+		"build:types": "tsc -p tsconfig.decl.json",
+		"prepublishOnly": "npm run build",
+		"test": "npm run test:lint && npm run test:types && npm run test:unit",
+		"test:lint": "eslint *.js test/*.js",
+		"test:types": "tsc",
+		"test:unit": "mocha -r esm",
+		"size": "cat prsh.js | terser -m | gzip-size"
+	},
+	"keywords": [
+		"preact",
+		"redux",
+		"hooks"
+	],
+	"author": {
+		"name": "Andrew Duthie",
+		"email": "andrew@andrewduthie.com",
+		"url": "https://andrewduthie.com"
+	},
+	"homepage": "https://github.com/aduth/prsh",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aduth/prsh.git"
+	},
+	"bugs": {
+		"url": "https://github.com/aduth/prsh/issues"
+	},
+	"license": "MIT",
+	"files": [
+		"dist",
+		"prsh.d.ts",
+		"prsh.js"
+	],
+	"peerDependencies": {
+		"preact": ">=10",
+		"redux": ">=4"
+	},
+	"devDependencies": {
+		"@aduth/eslint-config": "^4.1.0",
+		"@types/jsdom": "^16.1.0",
+		"@types/mocha": "^7.0.2",
+		"@types/sinon": "^7.5.2",
+		"eslint": "^7.28.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^3.4.0",
+		"esm": "^3.2.25",
+		"gzip-size-cli": "^3.0.0",
+		"jsdom": "^16.2.1",
+		"mocha": "^7.1.0",
+		"preact": "^10.3.4",
+		"prettier": "^2.3.1",
+		"redux": "^4.0.5",
+		"rollup": "^2.0.6",
+		"sinon": "^9.0.1",
+		"terser": "^4.6.6",
+		"typescript": "^4.3.2"
+	}
 }
