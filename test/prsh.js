@@ -8,12 +8,12 @@ import { useMemo } from 'preact/hooks';
 import { act } from 'preact/test-utils';
 import { createStore } from 'redux';
 import { strictEqual } from 'assert';
-import { createSandbox } from 'sinon';
+import sinon from 'sinon';
 
 /**
  * Internal dependencies
  */
-import { StoreContext, useSelector, useStore } from '../prsh';
+import { StoreContext, useSelector, useStore } from '../prsh.js';
 
 describe('useSelector', () => {
 	/** @type {Function[]} */
@@ -48,7 +48,7 @@ describe('useSelector', () => {
 		// @ts-ignore
 		global.document = window.document;
 		options.requestAnimationFrame = undefined;
-		sandbox = createSandbox();
+		sandbox = sinon.createSandbox();
 	});
 
 	/**
