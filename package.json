@@ -2,10 +2,15 @@
 	"name": "prsh",
 	"version": "1.0.1",
 	"description": "Preact Redux Simple Hooks",
-	"main": "dist/prsh.cjs.js",
-	"module": "prsh.js",
+	"type": "module",
 	"sideEffects": false,
 	"types": "prsh.d.ts",
+	"exports": {
+		".": {
+			"import": "./prsh.js",
+			"require": "./dist/prsh.cjs.js"
+		}
+	},
 	"scripts": {
 		"build": "npm run build:bundle && npm run build:types",
 		"postbuild": "terser -m -o dist/prsh.min.js dist/prsh.js",
@@ -15,7 +20,7 @@
 		"test": "npm run test:lint && npm run test:types && npm run test:unit",
 		"test:lint": "eslint *.js test/*.js",
 		"test:types": "tsc",
-		"test:unit": "mocha -r esm",
+		"test:unit": "mocha",
 		"size": "cat prsh.js | terser -m | gzip-size"
 	},
 	"keywords": [
@@ -58,7 +63,7 @@
 		"gzip-size-cli": "^3.0.0",
 		"jsdom": "^16.2.1",
 		"mocha": "^7.1.0",
-		"preact": "^10.3.4",
+		"preact": "^10.5.13",
 		"prettier": "^2.3.1",
 		"redux": "^4.0.5",
 		"rollup": "^2.0.6",
