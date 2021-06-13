@@ -17,7 +17,7 @@ export var StoreContext = createContext();
  * @return {import('redux').Store<State>} Store from context provider.
  */
 export function useStore() {
-	return useContext( StoreContext );
+	return useContext(StoreContext);
 }
 
 /**
@@ -31,26 +31,26 @@ export function useStore() {
  *
  * @return {SelectorResult} Selector-derived value.
  */
-export function useSelector( selector ) {
-	var store = useStore();
-	var state = useState( getNextResult );
+export function useSelector(selector) {
+	var store = useStore(),
+		state = useState(getNextResult);
 
 	function getNextResult() {
-		return selector( store.getState() );
+		return selector(store.getState());
 	}
 
 	useLayoutEffect(
-		function() {
+		function () {
 			function onStateChange() {
-				state[ 1 ]( getNextResult() );
+				state[1](getNextResult());
 			}
 
 			onStateChange();
 
-			return store.subscribe( onStateChange );
+			return store.subscribe(onStateChange);
 		},
-		[ store, selector ]
+		[store, selector]
 	);
 
-	return state[ 0 ];
+	return state[0];
 }

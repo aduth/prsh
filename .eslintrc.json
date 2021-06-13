@@ -1,7 +1,20 @@
 {
-	"extends": "plugin:@wordpress/eslint-plugin/es5",
+	"extends": "@aduth/eslint-config/es5",
 	"parserOptions": {
-		"sourceType": "module",
-		"ecmaVersion": 2015
-	}
+		"ecmaVersion": 2015,
+		"sourceType": "module"
+	},
+	"env": {
+		"browser": true
+	},
+	"overrides": [
+		{
+			"files": ["test/*"],
+			"extends": ["@aduth/eslint-config"],
+			"env": {
+				"node": true,
+				"mocha": true
+			}
+		}
+	]
 }

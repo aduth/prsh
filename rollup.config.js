@@ -1,6 +1,6 @@
-export default /** @type {import('rollup').RollupOptions} */ ( {
+export default /** @type {import('rollup').RollupOptions} */ ({
 	input: 'prsh.js',
-	external: [ 'preact', 'preact/hooks' ],
+	external: ['preact', 'preact/hooks'],
 	output: [
 		{
 			format: 'cjs',
@@ -16,4 +16,4 @@ export default /** @type {import('rollup').RollupOptions} */ ( {
 			},
 		},
 	],
-} );
+});
